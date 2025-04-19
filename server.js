@@ -14,6 +14,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/kontakt', (req, res) => {
   const { name, email, nachricht } = req.body;
 
+  console.log(req.body);
+
+
   // Simples Logging in eine Textdatei (anstatt Datenbank)
   const eintrag = `Name: ${name}, E-Mail: ${email}, Nachricht: ${nachricht}\n`;
   fs.appendFileSync('kontakte.txt', eintrag);
